@@ -9,20 +9,20 @@
           <el-button type="primary" @click="handleSearch" icon="el-icon-search">搜索</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="handleAdd" icon="el-icon-plus">新增</el-button>
+          <el-button type="primary" @click="handleAdd" icon="el-icon-plus">新增管理员</el-button>
         </el-form-item>
         <el-form-item>
           <el-button @click="handleExport" icon="el-icon-download">导出</el-button>
         </el-form-item>
       </el-form>
     </el-col>
-    
+
     <el-table
       :data="tableData"
-      @selection-change="handleSelectionChange" 
-      v-loading="loading" 
-      element-loading-text="拼命加载中" 
-      highlight-current-row border 
+      @selection-change="handleSelectionChange"
+      v-loading="loading"
+      element-loading-text="拼命加载中"
+      highlight-current-row border
       style="width:100%"
     >
       <el-table-column type="selection" width="50"></el-table-column>
@@ -44,33 +44,33 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <el-col :span="24" style="margin-top:15px">
-      <el-button 
-        :disabled="this.selected.length===0" 
-        @click="handleMultipleDelete" 
-        size="small" 
-        type="danger" 
+      <el-button
+        :disabled="this.selected.length===0"
+        @click="handleMultipleDelete"
+        size="small"
+        type="danger"
         style="float:left"
       >
         批量删除
       </el-button>
       <el-pagination
-        :total="total" 
-        :page-size="pageSize" 
+        :total="total"
+        :page-size="pageSize"
         :disabled="disablePagination"
-        @current-change="handleCurrentChange" 
-        @size-change="handleSizeChange" 
-        :page-sizes="[10, 20, 30, 50]" 
-        background layout="total, sizes, prev, pager, next, jumper" 
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
+        :page-sizes="[10, 20, 30, 50]"
+        background layout="total, sizes, prev, pager, next, jumper"
         style="float:right"
       >
       </el-pagination>
     </el-col>
-    <user-form 
+    <user-form
       v-if="dialogVisible"
-      :dialog-visible="dialogVisible" 
-      :is-edit-dialog="isEditDialog" 
+      :dialog-visible="dialogVisible"
+      :is-edit-dialog="isEditDialog"
       :initial-form-data="initialFormData"
       @close-dialog="handleCloseDialog"
       @update-data="getTableData"

@@ -98,8 +98,8 @@ export default new Router({
       path: '/test1',
       name: 'test1',
       meta: {
-        title: '测试1',
-        icon: 'el-icon-star-on',
+        title: '管理员账号',
+        icon: 'el-icon-menu',
       },
       component: Main,
       children: [
@@ -107,9 +107,9 @@ export default new Router({
           path: 'test1-1',
           name: 'test1-1',
           meta: {
-            title: '测试1-1',
+            title: '账号管理',
             icon: 'el-icon-share',
-            role: ['admin']
+            // role: ['admin']
           },
           component: RouteInfo
         },
@@ -124,11 +124,12 @@ export default new Router({
         },
       ]
     },
+
     {
       path: '/test2',
       name: 'test2',
       meta: {
-        title: '测试2',
+        title: '资讯审核',
         icon: 'el-icon-star-on'
       },
       component: Main,
@@ -156,6 +157,55 @@ export default new Router({
               name: 'test2-2-1',
               meta: {
                 title: '测试2-2-1',
+                icon: 'el-icon-phone'
+              },
+              component: RouteInfo
+            },
+            {
+              path: 'test2-2-2',
+              name: 'test2-2-2',
+              meta: {
+                title: '测试2-2-2',
+                icon: 'el-icon-star-on'
+              },
+              component: RouteInfo
+            }
+          ]
+        },
+      ]
+    },
+    {
+      path: '/test3',
+      name: 'test3',
+      meta: {
+        title: '寺庙审核',
+        icon: 'el-icon-office-building'
+      },
+      component: Main,
+      children: [
+        {
+          path: 'test3-1',
+          name: 'test3-1',
+          meta: {
+            title: '寺庙审核列表',
+            icon: 'el-icon-phone'
+          },
+          component: () => import('./views/simiao/simiaotable.vue')
+        },
+        {
+          path: 'test3-2',
+          name: 'test3-2',
+          meta: {
+            title: '测试3-2',
+            icon: 'el-icon-star-on'
+          },
+          component: RouteInfo,
+          children: [
+            {
+              path: 'test3-2-1',
+              name: 'test3-2-1',
+              meta: {
+                title: '测试3-2-1',
                 icon: 'el-icon-phone'
               },
               component: RouteInfo

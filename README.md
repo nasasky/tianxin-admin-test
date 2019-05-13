@@ -1,6 +1,9 @@
 # simple-admin
+# 平台开发者----nasasky
+# 后台系统管理
+# 目前准备开发中
 
-本项目是基于 Vue 和 Element UI 实现的一个后台管理系统的前端模板，在此基础上可以快速实现一个后台管理系统页面。
+本项目是基于 Vue2.6.10 和 Element UI2.8.2 实现的一个后台管理系统，在此基础上可以快速实现一个后台管理系统页面。
 
 主要功能特点：
 
@@ -9,13 +12,11 @@
 3. 动态面包屑
 4. 页面权限控制
 
-![image](https://raw.githubusercontent.com/lirenjiegit/simple-admin/master/docs/images/admin-0.JPG)
 
-![image](https://raw.githubusercontent.com/lirenjiegit/simple-admin/master/docs/images/admin-1.gif)
 
 ## 目录结构
 
-此项目使用 Vue Cli 3.x 创建，基本目录结构请参考[官方文档](https://cli.vuejs.org/zh/guide/)，整个项目的目录结构如下。
+此项目使用 Vue Cli 3.7.0 创建，整个项目的目录结构如下。
 
     .
     ├── babel.config.js
