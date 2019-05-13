@@ -1,5 +1,5 @@
 <template>
-  <div class="simiao">
+  <div class="simiaolie">
     <el-table
             :data="tableData"
             border
@@ -8,12 +8,12 @@
               fixed
               prop="date"
               label="日期"
-              width="100">
+              width="120">
       </el-table-column>
       <el-table-column
               prop="name"
               label="申请人姓名"
-              width="100">
+              width="120">
       </el-table-column>
       <el-table-column
               prop="province"
@@ -33,15 +33,14 @@
       <el-table-column
               prop="zip"
               label="寺庙名称"
-              width="150">
+              width="235">
       </el-table-column>
-        <el-table-column label="操作" width="220">
-            <template slot-scope="scope">
-                <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"  type="primary">同意</el-button>
-                <el-button size="mini" @click="hendleDelete(scope.$index, scope.row)" type="danger">拒绝</el-button>
-                <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">查看</el-button>
-            </template>
-        </el-table-column>
+      <el-table-column label="操作" width="100">
+        <template slot-scope="scope">
+
+          <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">查看详细</el-button>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>

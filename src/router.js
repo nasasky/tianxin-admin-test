@@ -188,9 +188,18 @@ export default new Router({
           name: 'test3-1',
           meta: {
             title: '寺庙审核列表',
-            icon: 'el-icon-phone'
+            icon: 'el-icon-film'
           },
           component: () => import('./views/simiao/simiaotable.vue')
+        },
+        {
+          path: 'test3-3',
+          name: 'test3-3',
+          meta: {
+            title: '寺庙列表',
+            icon: 'el-icon-files'
+          },
+          component: () => import('./views/simiaoliebiao/simiaolie.vue')
         },
         {
           path: 'test3-2',
