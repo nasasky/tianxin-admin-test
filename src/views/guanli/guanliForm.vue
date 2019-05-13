@@ -1,10 +1,10 @@
 <template>
   <div class="user-form">
-    <el-dialog 
-      @close="handleClose" 
-      :visible="visible" 
-      :title=" isEditDialog ? '编辑用户' : '新增用户' " 
-      :close-on-click-modal="false" 
+    <el-dialog
+      @close="handleClose"
+      :visible="visible"
+      :title=" isEditDialog ? '编辑用户' : '新增用户' "
+      :close-on-click-modal="false"
       width="35%"
     >
       <el-form ref="form" :model="formData" :rules="fromRules" :inline="false" label-width="80px">
@@ -31,7 +31,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="状态" prop="active" style="float:left">
-            <el-radio v-model="formData.active" label="true">激活</el-radio>
+            <el-radio v-model="formData.active" label="true">正常</el-radio>
             <el-radio v-model="formData.active" label="false">锁定</el-radio>
         </el-form-item>
       </el-form>
@@ -76,7 +76,7 @@ export default {
       //formData: {},
       fromRules: {
         name: [ { required: true, message: '请输入用户名', trigger: 'blur' } ],
-        email: [ 
+        email: [
           { required: true, message: '请输入邮箱', trigger: 'blur' },
           { type: 'email', message: '请输入正确的邮箱地址', trigger: 'blur' },
         ],

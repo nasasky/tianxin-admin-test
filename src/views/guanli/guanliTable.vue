@@ -11,9 +11,9 @@
         <el-form-item>
           <el-button type="primary" @click="handleAdd" icon="el-icon-plus">新增管理员</el-button>
         </el-form-item>
-        <el-form-item>
-          <el-button @click="handleExport" icon="el-icon-download">导出</el-button>
-        </el-form-item>
+<!--        <el-form-item>-->
+<!--          <el-button @click="handleExport" icon="el-icon-download">导出</el-button>-->
+<!--        </el-form-item>-->
       </el-form>
     </el-col>
 
