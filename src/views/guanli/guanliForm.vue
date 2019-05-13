@@ -3,7 +3,7 @@
     <el-dialog
       @close="handleClose"
       :visible="visible"
-      :title=" isEditDialog ? '编辑用户' : '新增用户' "
+      :title=" isEditDialog ? '编辑用户' : '新增管理员' "
       :close-on-click-modal="false"
       width="35%"
     >

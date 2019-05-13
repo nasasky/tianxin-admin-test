@@ -108,7 +108,7 @@ export default new Router({
           name: 'test1-1',
           meta: {
             title: '账号管理',
-            icon: 'el-icon-share',
+            icon: 'el-icon-user',
             // role: ['admin']
           },
           component: () => import('./views/guanli/guanliTable.vue')
