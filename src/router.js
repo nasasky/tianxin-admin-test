@@ -111,7 +111,7 @@ export default new Router({
             icon: 'el-icon-share',
             // role: ['admin']
           },
-          component: RouteInfo
+          component: () => import('./views/guanli/guanliTable.vue')
         },
         {
           path: 'test1-2',
