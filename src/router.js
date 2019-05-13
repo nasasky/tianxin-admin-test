@@ -141,7 +141,7 @@ export default new Router({
             title: '资讯审核管理',
             icon: 'el-icon-tickets'
           },
-          component: RouteInfo
+          component: () => import('./views/news/newstable.vue')
         },
         {
           path: 'test2-2',
