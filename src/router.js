@@ -99,7 +99,7 @@ export default new Router({
       name: 'test1',
       meta: {
         title: '管理员账号',
-        icon: 'el-icon-menu',
+        icon: 'el-icon-circle-plus-outline',
       },
       component: Main,
       children: [
@@ -130,7 +130,7 @@ export default new Router({
       name: 'test2',
       meta: {
         title: '资讯审核',
-        icon: 'el-icon-star-on'
+        icon: 'el-icon-postcard'
       },
       component: Main,
       children: [
@@ -138,8 +138,8 @@ export default new Router({
           path: 'test2-1',
           name: 'test2-1',
           meta: {
-            title: '测试2-1',
-            icon: 'el-icon-phone'
+            title: '资讯审核管理',
+            icon: 'el-icon-tickets'
           },
           component: RouteInfo
         },
