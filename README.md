@@ -48,7 +48,7 @@
 
 运行前先在本地安装 Node.js 环境，然后将项目代码克隆到本地：
 
-    git clone https://github.com/lirenjiegit/simple-admin
+   
 
 进入项目根目录，安装依赖并运行项目：
 
