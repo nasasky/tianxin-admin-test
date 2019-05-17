@@ -186,4 +186,10 @@ export default {
   margin-left: 5%;
   margin-top: 20px;
 }
+
+.van-button--primary[data-v-445139b6] {
+   
+    width: 90%;
+    margin-top: 30px;
+}
 </style>

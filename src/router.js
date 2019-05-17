@@ -267,6 +267,42 @@ export default new Router({
       path:'/moblie/publish',
       name:'moblie/publish',
       component:() => import('./views/moblie/publish')
+    },
+    {
+      path:'/moblie/sengren',
+      name:'moblie/sengren',
+      component:() => import('./views/moblie/sengren')
+    },
+    {
+      path:'/moblie/fabunews',
+      name:'moblie/fabunews',
+      component:() => import('./views/moblie/fabunews')
+    },
+    {
+      path:'/moblie/fabushangpin',
+      name:'moblie/fabushangpin',
+      component:() => import('./views/moblie/fabushangpin')
+    },
+    {
+      path:'/moblie/course',
+      name:'moblie/course',
+      component:() => import('./views/moblie/course')
+    },
+    {
+      path:'/moblie/renlie',
+      name:'moblie/renlie',
+      component:() => import('./views/moblie/renlie')
+    },
+    {
+      path:'/moblie/newslie',
+      name:'moblie/newslie',
+      component:() => import('./views/moblie/newslie')
+    },
+    {
+      path:'/moblie/shanglie',
+      name:'moblie/shanglie',
+      component:() => import('./views/moblie/shanglie')
     }
+
   ]
 })
