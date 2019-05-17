@@ -247,6 +247,26 @@ export default new Router({
         hidden: true
       },
       component: () => import('./views/404.vue')
+    },
+    {
+      path:'/moblie/login',
+      name:'moblie/login',
+      component:() => import('./views/moblie/login')
+    },
+    {
+      path:'/moblie/shouquan',
+      name:'moblie/shouquan',
+      component:() => import('./views/moblie/shouquan')
+    },
+    {
+      path:'/moblie/substitute',
+      name:'moblie/substitute',
+      component:() => import('./views/moblie/substitute')
+    },
+    {
+      path:'/moblie/publish',
+      name:'moblie/publish',
+      component:() => import('./views/moblie/publish')
     }
   ]
 })
