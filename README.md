@@ -1,7 +1,16 @@
 # simple-admin
-# 平台开发者----nasasky
+# 平台前端开发者----邓天（nasasky）
 # 后台系统管理
 # 目前准备开发中
+# 
+# PC+手机端寺庙管理员后台管理整合一起
+# 
+# PC使用Element UI2.8.2 
+# 
+# 手机端寺庙管理员使用Vant 1.6
+
+ps注意在npm install进行中报node-sass错误时，使用国内包安装（在cmd运行全局设置npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+）
 
 本项目是基于 Vue2.6.10 和 Element UI2.8.2 实现的一个后台管理系统，在此基础上可以快速实现一个后台管理系统页面。
 
@@ -13,6 +22,11 @@
 4. 页面权限控制
 
 
+#在登录拦截功能并未完善
+
+
+
+## 目录大概结构（实际情况请看代码）
 
 ## 目录结构
 
@@ -60,6 +74,9 @@
     npm run build
 
 ## 使用说明
+
+#默认访问PC端后台管理，访问移动端管理员页面如(http://127.0.0.1:8912/moblie/login)，即moblie/login
+
 
 ### 路由配置
 
