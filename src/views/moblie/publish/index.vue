@@ -24,7 +24,43 @@
         clearable
         required
       ></van-field>
-      <van-field
+     
+
+
+
+    </van-cell-group>
+
+  <!-- <van-cell-group>
+      
+      <van-cell v-model="addrInfo" readonly="readonly" title="省/市/区" value="" @click="show = true" ></van-cell>
+      <van-popup v-model="show" position="bottom">
+        <van-area
+          ref="area"
+          value="110000"
+          :area-list="areaList"
+         @confirm="onAddrConfirm" 
+         @cancel="onAddrCancel"
+          
+        />
+      </van-popup>
+    </van-cell-group> -->
+
+ <van-field label-align="left"  label="地区：" placeholder="点击选择地区" @click="show = true" value="" v-model="addrInfo" readonly="readonly"  required>
+
+ </van-field>
+  
+ <van-popup v-model="show" position="bottom">
+        <van-area
+          ref="area"
+          value="110000"
+          :area-list="areaList"
+         @confirm="onAddrConfirm" 
+         @cancel="onAddrCancel"
+          
+        />
+      </van-popup>
+
+ <van-field
         v-model="juti"
         placeholder="请输入寺庙具体地址"
         label-align="left"
@@ -33,9 +69,6 @@
         required
       ></van-field>
 
-
-
-    </van-cell-group>
 
     <van-row class="box">
       <van-button
@@ -48,24 +81,39 @@
   </div>
 </template>
 <script>
-
-// import areaList from './../../config/demo/area'
+import { Cell, CellGroup, Popup, Field,  Area, Picker } from 'vant'
+import areaList from './../../../config/demo/area'
 
 export default {
-  data() {
+ 
+ 
+ 
+ data() {
     return {
      
       username: "",
       password: "",
       juti: "",
-      isLogin: true
-      
+      isLogin: true,
+      show: false,
+      carmodel: '',
+      areaList: areaList,
+      showAddrPopup:false,
+      addrInfo:'',
+      showBankPopup:false,
     };
   },
 
    components: {
-   
-  },
+      VanCell: Cell,
+      VanCellGroup: CellGroup,
+      VanPopup: Popup,
+      VanField: Field,
+      VanArea: Area,
+      VanPicker: Picker
+    },
+
+
    created() {
       console.log(this.$route.params.id);
       console.log(this.$route.query.id);
@@ -121,7 +169,28 @@ export default {
         this.showLoginTip();
         this.login();
       }
-    }
+    },
+
+//  onChange (picker, value, index) {
+//         console.log('当前值：' + value + '当前索引：' + index)
+//         console.log(value)
+//         let areaName = ''
+        
+//         this.carmodel = areaName
+//       }
+
+  selAddr(){
+    this.showAddrPopup = true
+  },
+  onAddrConfirm(val){
+    this.show = false
+    this.addrInfo = val[0].name+" "+val[1].name+" "+val[2].name
+     
+  },
+ 
+  onAddrCancel(){
+    this.show = false
+  }
   }
 };
 </script>
@@ -191,5 +260,10 @@ export default {
    
     width: 90%;
     margin-top: 30px;
+}
+.van-button--small {
+    font-size: 15px;
+   height: 40px;
+   line-height: 40px;
 }
 </style>

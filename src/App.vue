@@ -2,6 +2,7 @@
   <div id="app">
     <router-view/>
   </div>
+  
 </template>
 
 <script>
@@ -10,6 +11,7 @@ export default {
   data() {
     return {};
   },
+  
 
   methods: {
     _isMobile() {
@@ -23,6 +25,8 @@ export default {
   }
 };
 </script>
+
+
 
 
 
