@@ -9,7 +9,8 @@
 # 
 # 手机端寺庙管理员使用Vant 1.6
 
-ps注意在npm install进行中报node-sass错误时，使用国内包安装
+ps注意在npm install进行中报node-sass错误时，使用国内包安装（在cmd运行全局设置npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+）
 
 本项目是基于 Vue2.6.10 和 Element UI2.8.2 实现的一个后台管理系统，在此基础上可以快速实现一个后台管理系统页面。
 
