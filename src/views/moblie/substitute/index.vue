@@ -167,4 +167,7 @@ text-align: center;
   margin-left: 0px !important;
   margin-right: 0px !important;
 }
+h6{
+  margin-top: 10px;
+}
 </style>

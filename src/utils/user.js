@@ -23,3 +23,8 @@ export const setUserName = (username) => {
 export const removeUserName = () => {
   return localStorage.removeItem('username');
 }
+
+
+export const getmoblietoken = () =>{
+  return localStorage.getItem('moblietoken')
+}
