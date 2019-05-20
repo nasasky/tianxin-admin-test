@@ -16,293 +16,312 @@ Vue.use(Router)
  */
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: '/login',
-      name: 'login',
-      meta: {
-        title: '登陆',
-        hidden: true
-      },
-      component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
-    },
-    {
-      path: '/',
-      name: 'root',
-      redirect: '/home',
-      meta: {
-        hidden: true,
-      }
-      //component: Home
-},
-    {
-      path: '/main',
-      name: 'main',
-      meta: {
-        hidden: true
-      },
-      component: Main
-    },
-    {
-      path: '/home',
-      name: 'home',
-      meta: {
-        title: '首页',
-        icon: 'el-icon-menu'
-      },
-      component: Main,
-    },
-    {
-      path: '/sysmanage',
-      name: 'sysmanage',
-      meta: {
-        title: '系统管理',
-        icon: 'el-icon-setting',
-        role: ['super_admin']
-      },
-      component: Main,
-      children: [
-        {
-          path: 'user',
-          name: 'user',
-          meta: {
-            title: '用户管理',
-            icon: 'el-icon-menu'
-          },
-          component: () => import('./views/user/UserTable.vue')
-        },
-        {
-          path: 'permission',
-          name: 'permission',
-          meta: {
-            title: '权限管理',
-            icon: 'el-icon-menu',
-            role: ['super_admin']
-          },
-          component: RouteInfo
-        },
-        {
-          path: 'role',
-          name: 'role',
-          meta: {
-            title: '角色管理',
-            icon: 'el-icon-share',
-          },
-          component: RouteInfo
-        },
-      ]
-    },
-    {
-      path: '/test1',
-      name: 'test1',
-      meta: {
-        title: '管理员账号',
-        icon: 'el-icon-circle-plus-outline',
-      },
-      component: Main,
-      children: [
-        {
-          path: 'test1-1',
-          name: 'test1-1',
-          meta: {
-            title: '账号管理',
-            icon: 'el-icon-user',
-            // role: ['admin']
-          },
-          component: () => import('./views/guanli/guanliTable.vue')
-        },
-        {
-          path: 'test1-2',
-          name: 'test1-2',
-          meta: {
-            title: '测试1-2',
-            icon: 'el-icon-star-on'
-          },
-          component: RouteInfo
-        },
-      ]
-    },
-
-    {
-      path: '/test2',
-      name: 'test2',
-      meta: {
-        title: '资讯审核',
-        icon: 'el-icon-postcard'
-      },
-      component: Main,
-      children: [
-        {
-          path: 'test2-1',
-          name: 'test2-1',
-          meta: {
-            title: '资讯审核管理',
-            icon: 'el-icon-tickets'
-          },
-          component: () => import('./views/news/newstable.vue')
-        },
-        {
-          path: 'test2-2',
-          name: 'test2-2',
-          meta: {
-            title: '测试2-2',
-            icon: 'el-icon-star-on'
-          },
-          component: RouteInfo,
-          children: [
-            {
-              path: 'test2-2-1',
-              name: 'test2-2-1',
-              meta: {
-                title: '测试2-2-1',
-                icon: 'el-icon-phone'
-              },
-              component: RouteInfo
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes: [{
+            path: '/login',
+            name: 'login',
+            meta: {
+                title: '登陆',
+                hidden: true
             },
-            {
-              path: 'test2-2-2',
-              name: 'test2-2-2',
-              meta: {
-                title: '测试2-2-2',
-                icon: 'el-icon-star-on'
-              },
-              component: RouteInfo
+            component: () =>
+                import ( /* webpackChunkName: "login" */ './views/Login.vue')
+        },
+        {
+            path: '/',
+            name: 'root',
+            redirect: '/home',
+            meta: {
+                hidden: true,
             }
-          ]
-        },
-      ]
-    },
-    {
-      path: '/test3',
-      name: 'test3',
-      meta: {
-        title: '寺庙审核',
-        icon: 'el-icon-office-building'
-      },
-      component: Main,
-      children: [
-        {
-          path: 'test3-1',
-          name: 'test3-1',
-          meta: {
-            title: '寺庙审核列表',
-            icon: 'el-icon-film'
-          },
-          component: () => import('./views/simiao/simiaotable.vue')
+            //component: Home
         },
         {
-          path: 'test3-3',
-          name: 'test3-3',
-          meta: {
-            title: '寺庙列表',
-            icon: 'el-icon-files'
-          },
-          component: () => import('./views/simiaoliebiao/simiaolie.vue')
-        },
-        {
-          path: 'test3-2',
-          name: 'test3-2',
-          meta: {
-            title: '测试3-2',
-            icon: 'el-icon-star-on'
-          },
-          component: RouteInfo,
-          children: [
-            {
-              path: 'test3-2-1',
-              name: 'test3-2-1',
-              meta: {
-                title: '测试3-2-1',
-                icon: 'el-icon-phone'
-              },
-              component: RouteInfo
+            path: '/main',
+            name: 'main',
+            meta: {
+                hidden: true
             },
-            {
-              path: 'test2-2-2',
-              name: 'test2-2-2',
-              meta: {
-                title: '测试2-2-2',
-                icon: 'el-icon-star-on'
-              },
-              component: RouteInfo
-            }
-          ]
+            component: Main
         },
-      ]
-    },
-    {
-      path: '/401',
-      name: 'error_401',
-      meta: {
-        hidden: true
-      },
-      component: () => import('./views/401.vue')
-    },
-    {
-      path: '*',   //未匹配到的路径，返回404页面
-      name: 'error_404',
-      meta: {
-        hidden: true
-      },
-      component: () => import('./views/404.vue')
-    },
-    {
-      path:'/moblie/login',
-      name:'moblie/login',
-      component:() => import('./views/moblie/login')
-    },
-    {
-      path:'/moblie/shouquan',
-      name:'moblie/shouquan',
-      component:() => import('./views/moblie/shouquan')
-    },
-    {
-      path:'/moblie/substitute',
-      name:'moblie/substitute',
-      component:() => import('./views/moblie/substitute')
-    },
-    {
-      path:'/moblie/publish',
-      name:'moblie/publish',
-      component:() => import('./views/moblie/publish')
-    },
-    {
-      path:'/moblie/sengren',
-      name:'moblie/sengren',
-      component:() => import('./views/moblie/sengren')
-    },
-    {
-      path:'/moblie/fabunews',
-      name:'moblie/fabunews',
-      component:() => import('./views/moblie/fabunews')
-    },
-    {
-      path:'/moblie/fabushangpin',
-      name:'moblie/fabushangpin',
-      component:() => import('./views/moblie/fabushangpin')
-    },
-    {
-      path:'/moblie/course',
-      name:'moblie/course',
-      component:() => import('./views/moblie/course')
-    },
-    {
-      path:'/moblie/renlie',
-      name:'moblie/renlie',
-      component:() => import('./views/moblie/renlie')
-    },
-    {
-      path:'/moblie/newslie',
-      name:'moblie/newslie',
-      component:() => import('./views/moblie/newslie')
-    },
-    {
-      path:'/moblie/shanglie',
-      name:'moblie/shanglie',
-      component:() => import('./views/moblie/shanglie')
-    }
+        {
+            path: '/home',
+            name: 'home',
+            meta: {
+                title: '首页',
+                icon: 'el-icon-menu'
+            },
+            component: Main,
+        },
+        {
+            path: '/sysmanage',
+            name: 'sysmanage',
+            meta: {
+                title: '系统管理',
+                icon: 'el-icon-setting',
+                role: ['super_admin']
+            },
+            component: Main,
+            children: [{
+                    path: 'user',
+                    name: 'user',
+                    meta: {
+                        title: '用户管理',
+                        icon: 'el-icon-menu'
+                    },
+                    component: () =>
+                        import ('./views/user/UserTable.vue')
+                },
+                {
+                    path: 'permission',
+                    name: 'permission',
+                    meta: {
+                        title: '权限管理',
+                        icon: 'el-icon-menu',
+                        role: ['super_admin']
+                    },
+                    component: RouteInfo
+                },
+                {
+                    path: 'role',
+                    name: 'role',
+                    meta: {
+                        title: '角色管理',
+                        icon: 'el-icon-share',
+                    },
+                    component: RouteInfo
+                },
+            ]
+        },
+        {
+            path: '/test1',
+            name: 'test1',
+            meta: {
+                title: '管理员账号',
+                icon: 'el-icon-circle-plus-outline',
+            },
+            component: Main,
+            children: [{
+                    path: 'test1-1',
+                    name: 'test1-1',
+                    meta: {
+                        title: '账号管理',
+                        icon: 'el-icon-user',
+                        // role: ['admin']
+                    },
+                    component: () =>
+                        import ('./views/guanli/guanliTable.vue')
+                },
+                {
+                    path: 'test1-2',
+                    name: 'test1-2',
+                    meta: {
+                        title: '测试1-2',
+                        icon: 'el-icon-star-on'
+                    },
+                    component: RouteInfo
+                },
+            ]
+        },
 
-  ]
+        {
+            path: '/test2',
+            name: 'test2',
+            meta: {
+                title: '资讯审核',
+                icon: 'el-icon-postcard'
+            },
+            component: Main,
+            children: [{
+                    path: 'test2-1',
+                    name: 'test2-1',
+                    meta: {
+                        title: '资讯审核管理',
+                        icon: 'el-icon-tickets'
+                    },
+                    component: () =>
+                        import ('./views/news/newstable.vue')
+                },
+                {
+                    path: 'test2-2',
+                    name: 'test2-2',
+                    meta: {
+                        title: '测试2-2',
+                        icon: 'el-icon-star-on'
+                    },
+                    component: RouteInfo,
+                    children: [{
+                            path: 'test2-2-1',
+                            name: 'test2-2-1',
+                            meta: {
+                                title: '测试2-2-1',
+                                icon: 'el-icon-phone'
+                            },
+                            component: RouteInfo
+                        },
+                        {
+                            path: 'test2-2-2',
+                            name: 'test2-2-2',
+                            meta: {
+                                title: '测试2-2-2',
+                                icon: 'el-icon-star-on'
+                            },
+                            component: RouteInfo
+                        }
+                    ]
+                },
+            ]
+        },
+        {
+            path: '/test3',
+            name: 'test3',
+            meta: {
+                title: '寺庙审核',
+                icon: 'el-icon-office-building'
+            },
+            component: Main,
+            children: [{
+                    path: 'test3-1',
+                    name: 'test3-1',
+                    meta: {
+                        title: '寺庙审核列表',
+                        icon: 'el-icon-film'
+                    },
+                    component: () =>
+                        import ('./views/simiao/simiaotable.vue')
+                },
+                {
+                    path: 'test3-3',
+                    name: 'test3-3',
+                    meta: {
+                        title: '寺庙列表',
+                        icon: 'el-icon-files'
+                    },
+                    component: () =>
+                        import ('./views/simiaoliebiao/simiaolie.vue')
+                },
+                {
+                    path: 'test3-2',
+                    name: 'test3-2',
+                    meta: {
+                        title: '测试3-2',
+                        icon: 'el-icon-star-on'
+                    },
+                    component: RouteInfo,
+                    children: [{
+                            path: 'test3-2-1',
+                            name: 'test3-2-1',
+                            meta: {
+                                title: '测试3-2-1',
+                                icon: 'el-icon-phone'
+                            },
+                            component: RouteInfo
+                        },
+                        {
+                            path: 'test2-2-2',
+                            name: 'test2-2-2',
+                            meta: {
+                                title: '测试2-2-2',
+                                icon: 'el-icon-star-on'
+                            },
+                            component: RouteInfo
+                        }
+                    ]
+                },
+            ]
+        },
+        {
+            path: '/401',
+            name: 'error_401',
+            meta: {
+                hidden: true
+            },
+            component: () =>
+                import ('./views/401.vue')
+        },
+        {
+            path: '*', //未匹配到的路径，返回404页面
+            name: 'error_404',
+            meta: {
+                hidden: true
+            },
+            component: () =>
+                import ('./views/404.vue')
+        },
+        {
+            path: '/moblie/login',
+            name: 'moblie/login',
+            component: () =>
+                import ('./views/moblie/login')
+        },
+        {
+            path: '/moblie/shouquan',
+            name: 'moblie/shouquan',
+            component: () =>
+                import ('./views/moblie/shouquan')
+        },
+        {
+            path: '/moblie/substitute',
+            name: 'moblie/substitute',
+            component: () =>
+                import ('./views/moblie/substitute')
+        },
+        {
+            path: '/moblie/publish',
+            name: 'moblie/publish',
+            component: () =>
+                import ('./views/moblie/publish')
+        },
+        {
+            path: '/moblie/sengren',
+            name: 'moblie/sengren',
+            component: () =>
+                import ('./views/moblie/sengren')
+        },
+        {
+            path: '/moblie/fabunews',
+            name: 'moblie/fabunews',
+            component: () =>
+                import ('./views/moblie/fabunews')
+        },
+        {
+            path: '/moblie/fabushangpin',
+            name: 'moblie/fabushangpin',
+            component: () =>
+                import ('./views/moblie/fabushangpin')
+        },
+        {
+            path: '/moblie/course',
+            name: 'moblie/course',
+            component: () =>
+                import ('./views/moblie/course')
+        },
+        {
+            path: '/moblie/renlie',
+            name: 'moblie/renlie',
+            component: () =>
+                import ('./views/moblie/renlie')
+        },
+        {
+            path: '/moblie/newslie',
+            name: 'moblie/newslie',
+            component: () =>
+                import ('./views/moblie/newslie')
+        },
+        {
+            path: '/moblie/shanglie',
+            name: 'moblie/shanglie',
+            component: () =>
+                import ('./views/moblie/shanglie')
+        },
+        {
+            path: '/moblie/test',
+            name: 'moblie/test',
+            component: () =>
+                import ('./views/moblie/test')
+        }
+
+
+    ]
 })
