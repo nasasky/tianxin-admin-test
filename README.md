@@ -62,7 +62,7 @@ ps注意在npm install进行中报node-sass错误时，使用国内包安装（�
 
 运行前先在本地安装 Node.js 环境，然后将项目代码克隆到本地：
 
-    git clone https://github.com/lirenjiegit/simple-admin
+   
 
 进入项目根目录，安装依赖并运行项目：
 
@@ -75,7 +75,7 @@ ps注意在npm install进行中报node-sass错误时，使用国内包安装（�
 
 ## 使用说明
 
-#默认访问PC端后台管理，访问移动端管理员页面如(http://127.0.0.1:8912/moblie/login)，即moblie/login
+#默认访问PC端后台管理，访问移动端管理员页面（注意因为有路由判断模式，所以浏览调到开发者手机端浏览模式）如(http://127.0.0.1:8912/moblie/login)，即moblie/login
 
 
 ### 路由配置
