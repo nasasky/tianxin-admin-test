@@ -20,7 +20,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/login',
+      path: '/',
       name: 'login',
       meta: {
         title: '登陆',
@@ -28,15 +28,15 @@ export default new Router({
       },
       component: () => import(/* webpackChunkName: "login" */ './views/Login.vue')
     },
-    {
-      path: '/',
-      name: 'root',
-      redirect: '/home',
-      meta: {
-        hidden: true,
-      }
-      //component: Home
-    },
+    // {
+    //   path: '/home',
+    //   name: 'root',
+      
+    //   meta: {
+    //     hidden: true,
+    //   }
+    //   //component: Home
+    // },
     {
       path: '/main',
       name: 'main',

@@ -27,6 +27,12 @@ import SideMenu from "@/components/SideMenu";
 import HeaderBar from "@/components/HeaderBar";
 import BreadCrumb from "@/components/BreadCrumb";
 import { getMenuListByRoutes } from "@/utils/permission";
+// import {
+//   getToken
+// } from './utils/user'
+// import {
+//   hasRoutePermission
+// } from '@/utils/permission'
 
 export default {
   name: "main-component",

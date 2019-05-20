@@ -1,6 +1,6 @@
 export default {
   methods: 'post',
-  baseUrl: 'https://bbs.nasaskyx.club/api',
+  baseUrl: 'https://bj.luzhaoyao.club/api',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },

@@ -163,4 +163,8 @@ text-align: center;
 .van-col--6 h6{
   color: black;
 }
+.van-row{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 </style>
