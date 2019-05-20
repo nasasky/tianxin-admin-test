@@ -139,7 +139,7 @@ export default {
     background-color: #0082FE;
     border: 1px solid #0082FE;
     width: 90%;
-    margin-left: 5%;
+   
     margin-top: 20px;
 
 }
@@ -148,7 +148,16 @@ export default {
     background-color: #0082FE;
     border: 1px solid #0082FE;
     width: 90%;
-    margin-left: 5%;
+   
     margin-top: 20px;
 }
+.van-button--small {
+    padding: 0 8px;
+    height: 40px;
+    min-width: 60px;
+    font-size: 15px;
+    line-height: 38px;
+}
+
+
 </style>

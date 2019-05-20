@@ -86,7 +86,7 @@ export default {
     padding: 0 15px;
     font-size: 14px;
     width: 90%;
-    margin-left: 5%;
+ 
 }
 .van-button {
     height: 40px;

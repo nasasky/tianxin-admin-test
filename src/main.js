@@ -34,46 +34,36 @@ Vue.use(ElementUI);
 router.beforeEach((to, from, next) => {
 
   var ismobile = localStorage.getItem('ismobile');
-  
-    if(ismobile == null){
-      let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
-  
-      ismobile = flag ? 1 : 0
-    }
-  
-    // 电脑
-    if (ismobile == 0) {
-      // if (to.path == '/') {
-      //     next('/home')
-      // } else {
-      //     next();
-      // }
 
-      const token = getToken()
-  if (!token && to.name !== 'login') {
-    //未登录且要跳转的页面不是登录页，跳转至登陆页
-    next({
-      name: 'login'
-    })
-  } else if (!token && to.name == 'login') {
-    next()
-  } else if (token && to.name === 'login') {
-    //已登陆且跳转的页面是登陆页，跳转至home
-    next({
-      name: 'home'
-    })
-  } else {
-    if (store.state.user.hasGetUserInfo) {
-      if (hasRoutePermission(to, store.state.user.role)) {
-        next()
-      } else {
-        next({
-          path: '/401'
-        })
-      }
+  if (ismobile == null) {
+    let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+
+    ismobile = flag ? 1 : 0
+  }
+
+  // 电脑
+  if (ismobile == 0) {
+    // if (to.path == '/') {
+    //     next('/home')
+    // } else {
+    //     next();
+    // }
+
+    const token = getToken()
+    if (!token && to.name !== 'login') {
+      //未登录且要跳转的页面不是登录页，跳转至登陆页
+      next({
+        name: 'login'
+      })
+    } else if (!token && to.name == 'login') {
+      next()
+    } else if (token && to.name === 'login') {
+      //已登陆且跳转的页面是登陆页，跳转至home
+      next({
+        name: 'home'
+      })
     } else {
-      //刷新页面后vuex数据丢失，重新获取用户信息
-      store.dispatch('handleUserInfo').then(() => {
+      if (store.state.user.hasGetUserInfo) {
         if (hasRoutePermission(to, store.state.user.role)) {
           next()
         } else {
@@ -81,24 +71,34 @@ router.beforeEach((to, from, next) => {
             path: '/401'
           })
         }
-      })
-    }
-}
-
-
-    }
-  
-    // 手机
-    if (ismobile == 1) {
-      if (to.path == '/') {
-          next('/moblie/login')
       } else {
-          next();
+        //刷新页面后vuex数据丢失，重新获取用户信息
+        store.dispatch('handleUserInfo').then(() => {
+          if (hasRoutePermission(to, store.state.user.role)) {
+            next()
+          } else {
+            next({
+              path: '/401'
+            })
+          }
+        })
       }
     }
-  
-  })
-  
+
+
+  }
+
+  // 手机
+  if (ismobile == 1) {
+    if (to.path == '/') {
+      next('/moblie/login')
+    } else {
+      next();
+    }
+  }
+
+})
+
 
 
 

@@ -102,4 +102,11 @@ export default {
   height: 100%;
   
 }
+.title{
+  text-align: left;
+  line-height: 22px;
+
+}
+
+
 </style>
