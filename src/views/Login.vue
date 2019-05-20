@@ -69,7 +69,7 @@ export default {
                 .dispatch("handleUserInfo")
                 .then(res => {
                   this.logining = false;
-                  this.$router.push("/home"); //登陆、获取用户信息成功后跳转至首页
+                  this.$router.push("/"); //登陆、获取用户信息成功后跳转至首页
                 })
                 .catch(err => {
                   this.isFailed = true;
