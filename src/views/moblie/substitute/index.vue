@@ -45,7 +45,7 @@
 </van-row>
 
 
-<van-row gutter="20" style="margin-top:20px;">
+<van-row gutter="20">
   <router-link :to="{name:'moblie/course',params:{}}">
  <van-col span="6">
     <van-icon  name="hotel-o" />

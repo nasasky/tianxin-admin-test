@@ -1,6 +1,9 @@
 import axios from 'axios'
 import store from '@/store'
 //import router from '@/router'
+const baseURL = 'https://bbs.luzhaoyao.club/api'
+
+axios.defaults.baseURL = baseURL
 
 // 请求拦截器
 axios.interceptors.request.use(

@@ -18,8 +18,8 @@
     </van-row>
 </div>
 </template>
-<script>
 
+<script>
 
 export default {
   data() {
@@ -40,6 +40,7 @@ export default {
         message: '登录中......'
       })
     },
+
     login() {
       this.$http.login({
         username: this.username,

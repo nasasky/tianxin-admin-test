@@ -5,8 +5,12 @@ import store from './store'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import 'normalize.css' // A modern alternative to CSS resets
-import {getToken} from './utils/user'
-import {hasRoutePermission} from '@/utils/permission'
+import {
+    getToken
+} from './utils/user'
+import {
+    hasRoutePermission
+} from '@/utils/permission'
 
 
 import Vant from 'vant'
@@ -29,76 +33,122 @@ Vue.use(ElementUI);
 
 router.beforeEach((to, from, next) => {
 
-  var ismobile = localStorage.getItem('ismobile');
+    var ismobile = localStorage.getItem('ismobile');
 
-  if (ismobile == null) {
-    let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+    if (ismobile == null) {
+        let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
 
-    ismobile = flag ? 1 : 0
-  }
+        ismobile = flag ? 1 : 0
+    }
 
-  // 电脑
-  if (ismobile == 0) {
-    // if (to.path == '/') {
-    //     next('/home')
-    // } else {
-    //     next();
-    // }
+    // 电脑
+    if (ismobile == 0) {
+        // if (to.path == '/') {
+        //     next('/home')
+        // } else {
+        //     next();
+        // }
 
-    //路由守卫
-    const token = getToken()
-    if (!token && to.name !== 'login') {
-      //未登录且要跳转的页面不是登录页，跳转至登陆页
-      next({
-        name: 'login'
-      })
-    } else if (!token && to.name == 'login') {
-      next()
-    } else if (token && to.name === 'login') {
-      //已登陆且跳转的页面是登陆页，跳转至home
-      next({
-        name: 'home'
-      })
-    } else {
-      if (store.state.user.hasGetUserInfo) {
-        if (hasRoutePermission(to, store.state.user.role)) {
-          next()
-        } else {
-          next({
-            path: '/401'
-          })
-        }
-      } else {
-        //刷新页面后vuex数据丢失，重新获取用户信息
-        store.dispatch('handleUserInfo').then(() => {
-          if (hasRoutePermission(to, store.state.user.role)) {
-            next()
-          } else {
+        //路由守卫
+        const token = getToken()
+        if (!token && to.name !== 'login') {
+            //未登录且要跳转的页面不是登录页，跳转至登陆页
             next({
-              path: '/401'
+                name: 'login'
             })
-          }
-        })
-      }
+        } else if (!token && to.name == 'login') {
+            next()
+        } else if (token && to.name === 'login') {
+            //已登陆且跳转的页面是登陆页，跳转至home
+            next({
+                name: 'home'
+            })
+            console.log(111111)
+        } else {
+            if (store.state.user.hasGetUserInfo) {
+                if (hasRoutePermission(to, store.state.user.role)) {
+                    next()
+                } else {
+                    next({
+                        path: '/401'
+                    })
+                }
+            } else {
+                //刷新页面后vuex数据丢失，重新获取用户信息
+                store.dispatch('handleUserInfo').then(() => {
+                    if (hasRoutePermission(to, store.state.user.role)) {
+                        next()
+                    } else {
+                        next({
+                            path: '/401'
+                        })
+                    }
+                })
+            }
+        }
+        console.log(ismobile)
+
     }
 
+    // 手机
+    if (ismobile == 1) {
+        // if (to.path == '/') {
+        //     next('/moblie/login')
+        // } else {
+        //     next();
+        // }
 
-  }
+        //路由守卫
+        const token = getToken()
+        if (!token && to.name !== 'loginx') {
+            //未登录且要跳转的页面不是登录页，跳转至登陆页
+            next({
+                name: 'loginx'
+            })
+        } else if (!token && to.name == 'loginx') {
+            next()
+        } else if (token && to.name === 'home') {
+            next('/moblie/substitute')
+            console.log(22221)
+        } else if (token && to.name === 'loginx') {
+            //已登陆且跳转的页面是登陆页，跳转至home
+            next({
+                name: 'moblie/shouquan'
+            })
 
-  // 手机
-  if (ismobile == 1) {
-    if (to.path == '/') {
-      next('/moblie/login')
-    } else {
-      next();
+            console.log('执行手机')
+        } else {
+            if (store.state.user.hasGetUserInfo) {
+                if (hasRoutePermission(to, store.state.user.role)) {
+                    next()
+                } else {
+                    next({
+                        path: '/401'
+                    })
+                }
+            } else {
+                //刷新页面后vuex数据丢失，重新获取用户信息
+                store.dispatch('handleUserInfo').then(() => {
+                    if (hasRoutePermission(to, store.state.user.role)) {
+                        next()
+                    } else {
+                        next({
+                            path: '/401'
+                        })
+                    }
+                })
+            }
+        }
+
+
+        console.log(ismobile)
     }
-  }
 
 })
 
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')

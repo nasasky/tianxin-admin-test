@@ -27,11 +27,11 @@ export default {
                 pageNumber: this.pageNumber + 1
             };
             let self = this;
-            this.$http
-      .getCourse(data, re => {
-                self.deviceList = re.info.list;
-                self.totalPage = re.info.totalPage;
-                self.isLoading = false; //关闭下拉刷新效果
+            this.$http.getCourse(data, re => {
+                // self.deviceList = re.info.list;
+                // self.totalPage = re.info.totalPage;
+                // self.isLoading = false; //关闭下拉刷新效果
+                console.log(data)
             });
         },
         //下拉刷新
@@ -50,8 +50,7 @@ export default {
                 let data = {
                     pageNumber: self.pageNumber + 1
                 };
-                self.$http
-      .getCourse(data, re => {
+                self.$http.getCourse(data, re => {
                     self.totalPage = re.info.totalPage;
                     self.deviceList = self.deviceList.concat(re.info.list);
                     self.loading = false;

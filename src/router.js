@@ -26,7 +26,12 @@ export default new Router({
                 hidden: true
             },
             component: () =>
-                import ( /* webpackChunkName: "login" */ './views/Login.vue')
+                import( /* webpackChunkName: "login" */ './views/Login.vue')
+        },
+        {
+            path: '/loginx',
+            name: 'loginx',
+            component: () => import('./views/Loginx.vue')
         },
         {
             path: '/',
@@ -71,7 +76,7 @@ export default new Router({
                         icon: 'el-icon-menu'
                     },
                     component: () =>
-                        import ('./views/user/UserTable.vue')
+                        import('./views/user/UserTable.vue')
                 },
                 {
                     path: 'permission',
@@ -111,7 +116,7 @@ export default new Router({
                         // role: ['admin']
                     },
                     component: () =>
-                        import ('./views/guanli/guanliTable.vue')
+                        import('./views/guanli/guanliTable.vue')
                 },
                 {
                     path: 'test1-2',
@@ -141,7 +146,7 @@ export default new Router({
                         icon: 'el-icon-tickets'
                     },
                     component: () =>
-                        import ('./views/news/newstable.vue')
+                        import('./views/news/newstable.vue')
                 },
                 {
                     path: 'test2-2',
@@ -189,7 +194,7 @@ export default new Router({
                         icon: 'el-icon-film'
                     },
                     component: () =>
-                        import ('./views/simiao/simiaotable.vue')
+                        import('./views/simiao/simiaotable.vue')
                 },
                 {
                     path: 'test3-3',
@@ -199,7 +204,7 @@ export default new Router({
                         icon: 'el-icon-files'
                     },
                     component: () =>
-                        import ('./views/simiaoliebiao/simiaolie.vue')
+                        import('./views/simiaoliebiao/simiaolie.vue')
                 },
                 {
                     path: 'test3-2',
@@ -238,7 +243,7 @@ export default new Router({
                 hidden: true
             },
             component: () =>
-                import ('./views/401.vue')
+                import('./views/401.vue')
         },
         {
             path: '*', //未匹配到的路径，返回404页面
@@ -247,79 +252,79 @@ export default new Router({
                 hidden: true
             },
             component: () =>
-                import ('./views/404.vue')
+                import('./views/404.vue')
         },
         {
             path: '/moblie/login',
             name: 'moblie/login',
             component: () =>
-                import ('./views/moblie/login')
+                import('./views/moblie/login')
         },
         {
             path: '/moblie/shouquan',
             name: 'moblie/shouquan',
             component: () =>
-                import ('./views/moblie/shouquan')
+                import('./views/moblie/shouquan')
         },
         {
             path: '/moblie/substitute',
             name: 'moblie/substitute',
             component: () =>
-                import ('./views/moblie/substitute')
+                import('./views/moblie/substitute')
         },
         {
             path: '/moblie/publish',
             name: 'moblie/publish',
             component: () =>
-                import ('./views/moblie/publish')
+                import('./views/moblie/publish')
         },
         {
             path: '/moblie/sengren',
             name: 'moblie/sengren',
             component: () =>
-                import ('./views/moblie/sengren')
+                import('./views/moblie/sengren')
         },
         {
             path: '/moblie/fabunews',
             name: 'moblie/fabunews',
             component: () =>
-                import ('./views/moblie/fabunews')
+                import('./views/moblie/fabunews')
         },
         {
             path: '/moblie/fabushangpin',
             name: 'moblie/fabushangpin',
             component: () =>
-                import ('./views/moblie/fabushangpin')
+                import('./views/moblie/fabushangpin')
         },
         {
             path: '/moblie/course',
             name: 'moblie/course',
             component: () =>
-                import ('./views/moblie/course')
+                import('./views/moblie/course')
         },
         {
             path: '/moblie/renlie',
             name: 'moblie/renlie',
             component: () =>
-                import ('./views/moblie/renlie')
+                import('./views/moblie/renlie')
         },
         {
             path: '/moblie/newslie',
             name: 'moblie/newslie',
             component: () =>
-                import ('./views/moblie/newslie')
+                import('./views/moblie/newslie')
         },
         {
             path: '/moblie/shanglie',
             name: 'moblie/shanglie',
             component: () =>
-                import ('./views/moblie/shanglie')
+                import('./views/moblie/shanglie')
         },
         {
             path: '/moblie/test',
             name: 'moblie/test',
             component: () =>
-                import ('./views/moblie/test')
+                import('./views/moblie/test')
         }
 
 
