@@ -264,4 +264,7 @@ export default {
   height: 40px;
   line-height: 40px;
 }
+li {
+  position: relative !important;
+}
 </style>

@@ -1,125 +1,131 @@
 <template>
- <div class="hello">
-        <van-row class="m-header">
-            <van-col span="24">
-                <van-icon name="arrow-left" class="m-header-icon"  @click="prevx()" />
-　　　　　　　　　　<div class="head">发布资讯</div>
-　　　　　　  </van-col>
-        </van-row>
-      
+  <div class="hello">
+    <van-row class="m-header">
+      <van-col span="24">
+        <van-icon name="arrow-left" class="m-header-icon" @click="prevx()"/>
+        <div class="head">发布资讯</div>
+      </van-col>
+    </van-row>
 
-      <van-cell-group>
-      <van-field v-model="username" placeholder="请输入资讯标题" label-align="left" label="标题：" clearable required></van-field>
-      
-      <van-field class="tess" v-model="message"  type="textarea" placeholder="请输入详细内容"  rows="1" autosize style="height:200px;" />
+    <van-cell-group>
+      <van-field
+        v-model="username"
+        placeholder="请输入资讯标题"
+        label-align="left"
+        label="标题："
+        clearable
+        required
+      ></van-field>
+
+      <van-field
+        class="tess"
+        v-model="message"
+        type="textarea"
+        placeholder="请输入详细内容"
+        rows="1"
+        autosize
+        style="height:200px;"
+      />
     </van-cell-group>
 
-
-
-
-
     <van-row class="box">
-    
-      <van-button type="primary" size="small" class="login-btn" @click="handleLogin">
-        {{isLogin ? '提交' : ''}}
-      </van-button>
+      <van-button
+        type="primary"
+        size="small"
+        class="login-btn"
+        @click="handleLogin"
+      >{{isLogin ? '提交' : ''}}</van-button>
     </van-row>
-    
-
   </div>
-  
 </template>
 <script>
 export default {
   data() {
     return {
-     username: '',
-      password: '',
-      juti:'',
-      message:'',
-      
+      username: "",
+      password: "",
+      juti: "",
+      message: "",
+
       isLogin: true
-    }
+    };
   },
 
-
   methods: {
-    
-     prevx () {
-      this.$router.go(-1)
+    prevx() {
+      this.$router.go(-1);
     },
-    
+
     showLoginTip() {
       const toast = this.$toast.loading({
         duration: 500,
         forbidClick: false,
-        loadingType: 'spinner',
-        message: '登录中......'
-      })
+        loadingType: "spinner",
+        message: "登录中......"
+      });
     },
     login() {
-      this.$http.login({
-        username: this.username,
-        password: this.password,
-        juti:this.juti
-      }).then(response => {
-        console.log('登录成功返回', response)
-        console.log('返回code',response.code)
-        if(response.code == 1) {
-
+      this.$http
+        .login({
+          username: this.username,
+          password: this.password,
+          juti: this.juti
+        })
+        .then(response => {
+          console.log("登录成功返回", response);
+          console.log("返回code", response.code);
+          if (response.code == 1) {
             this.$router.push({
-                path: '/substitute'
-            })
-          // this.$store.dispatch('setUser', )
-        }
-        if(response.code == 0){
-           console.log('登录失败', response)
-            this.$toast.fail(response.info)
-          return
-        }
-      })
+              path: "/substitute"
+            });
+            // this.$store.dispatch('setUser', )
+          }
+          if (response.code == 0) {
+            console.log("登录失败", response);
+            this.$toast.fail(response.info);
+            return;
+          }
+        });
     },
     handleLogin() {
-      if(!this.username) {
-        this.$toast.fail('寺庙名称不能为空')
-        return
+      if (!this.username) {
+        this.$toast.fail("寺庙名称不能为空");
+        return;
       }
-      if(!this.password){
-        this.$toast.fail('负责人不能为空')
-         return
+      if (!this.password) {
+        this.$toast.fail("负责人不能为空");
+        return;
       }
 
-      if(this.isLogin) {
-        this.showLoginTip()
-        this.login()
+      if (this.isLogin) {
+        this.showLoginTip();
+        this.login();
       }
-    },
-
-
+    }
   }
-}
+};
 </script>
 <style scoped>
-    .m-header {
-        height: 40px;
-        line-height: 40px;
-        background: #0082FE;
-        color: #fff;
-    }
-    
-    .m-header-icon {
-        position: absolute;
-        top: 11px;
-        left: 6px;
-        font-size: 18px;
-    }
-    .head{
-      text-align: center;
-       font-size: 14px;
-    }
-    textarea{
-      height: 200px !important;
-    }
+.m-header {
+  height: 40px;
+  line-height: 40px;
+  background: #0082fe;
+  color: #fff;
+}
+
+.m-header-icon {
+  position: absolute;
+  top: 11px;
+  left: 6px;
+  font-size: 18px;
+}
+.head {
+  text-align: center;
+  font-size: 14px;
+}
+textarea {
+  height: 200px !important;
+}
 </style>
 <style lang="scss" scoped>
 .login-container {
@@ -139,40 +145,42 @@ export default {
   }
 }
 .van-cell-group {
-    background-color: #fff;
-    width: 100%;
+  background-color: #fff;
+  width: 100%;
 }
 .login-container .box[data-v-37dfd6fc] {
-    margin-top: 30px;
-    width: 90%;
+  margin-top: 30px;
+  width: 90%;
 }
 .login-container .login-btn[data-v-37dfd6fc] {
-     margin-left: 0px;
-    width: 100%;
+  margin-left: 0px;
+  width: 100%;
 }
 .van-button--primary {
-    color: #fff;
-    background-color: #0082FE;
-    border: 1px solid #0082FE;
-    width: 90%;
-   
-    margin-top: 20px;
+  color: #fff;
+  background-color: #0082fe;
+  border: 1px solid #0082fe;
+  width: 90%;
 
+  margin-top: 20px;
 }
 .van-button--primary[data-v-08841328] {
-    color: #fff;
-    background-color: #0082FE;
-    border: 1px solid #0082FE;
-    width: 90%;
-   
-    margin-top: 20px;
+  color: #fff;
+  background-color: #0082fe;
+  border: 1px solid #0082fe;
+  width: 90%;
+
+  margin-top: 20px;
 }
 .van-button--small {
-    padding: 0 8px;
-    height: 40px;
-    min-width: 60px;
-    font-size: 15px;
-    line-height: 38px;
+  padding: 0 8px;
+  height: 40px;
+  min-width: 60px;
+  font-size: 15px;
+  line-height: 38px;
 }
-
+span {
+  width: 100% !important;
+  background: none !important;
+}
 </style>

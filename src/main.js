@@ -108,7 +108,7 @@ router.beforeEach((to, from, next) => {
         } else if (!token && to.name == 'loginx') {
             next()
         } else if (token && to.name === 'home') {
-            next('/moblie/substitute')
+            next('/homex')
             console.log(22221)
         } else if (token && to.name === 'loginx') {
             //已登陆且跳转的页面是登陆页，跳转至home

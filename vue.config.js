@@ -12,7 +12,7 @@ module.exports = {
         proxy: {
             //配置跨域
             '/api': {
-                target: "https://bbs.luzhaoyao.club/api",
+                target: "https://bj.luzhaoyao.club/api",
                 ws: true,
                 changOrigin: true,
                 pathRewrite: {

@@ -261,6 +261,42 @@ export default new Router({
                 import('./views/moblie/login')
         },
         {
+            path: '/homex',
+            name: 'homex',
+            component: () => import('./views/homex'),
+            children: [{
+                    path: '/homex',
+                    redirect: '/homex/index'
+                },
+                {
+                    path: '/homex/mine',
+                    name: 'mine',
+                    component: () => import('./views/moblie/substitute')
+                },
+                {
+                    path: '/homex/ad',
+                    name: 'ad',
+                    component: () => import('./views/moblie/ad')
+                },
+                {
+                    path: '/homex/index',
+                    name: 'substitute',
+                    component: () => import('./views/moblie/index')
+                },
+                {
+                    path: '/homex/course',
+                    name: 'course',
+                    component: () => import('./views/moblie/ad')
+                }
+            ]
+        }, {
+            path: '/moblie/homev',
+            name: 'moblie/namev',
+            component: () => import('./views/moblie/homev')
+
+        },
+
+        {
             path: '/moblie/shouquan',
             name: 'moblie/shouquan',
             component: () =>
@@ -325,6 +361,11 @@ export default new Router({
             name: 'moblie/test',
             component: () =>
                 import('./views/moblie/test')
+        },
+        {
+            path: '/moblie/dingwei',
+            name: 'moblie/dingwei',
+            component: () => import('./views/moblie/dingwei')
         }
 
 
