@@ -1,7 +1,7 @@
 import axios from 'axios'
 import store from '@/store'
 //import router from '@/router'
-const baseURL = 'https://bbs.luzhaoyao.club/api'
+const baseURL = '/api'
 
 axios.defaults.baseURL = baseURL
 

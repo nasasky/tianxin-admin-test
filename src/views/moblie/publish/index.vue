@@ -256,7 +256,7 @@ export default {
 }
 
 .van-button--primary[data-v-445139b6] {
-  width: 90%;
+  width: 90% !important;
   margin-top: 30px;
 }
 .van-button--small {
